@@ -201,7 +201,7 @@ module InheritedResources
           given_options = given_args.extract_options!
 
           args = ivars.map do |ivar|
-            ivar.is_a?(Symbol) && ivar.to_s.start_with?('@') ? instance_variable_get(ivar) : ivar
+            ivar.is_a?(Symbol) && ivar.to_s.start_with?('@') ? instance_variable_get(ivar) : ivar.to_sym
           end
           args[parent_index] = parent if parent_index
 
